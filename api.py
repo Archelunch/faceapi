@@ -31,11 +31,12 @@ OVERLAY_POINTS = [
 
 COLOUR_CORRECT_BLUR_FRAC = 0.6
 
-face_cascade = cv2.CascadeClassifier('files\\haarcascade_frontalface_alt.xml')
+face_cascade = cv2.CascadeClassifier('files/haarcascade_frontalface_alt.xml')
 detector = dlib.get_frontal_face_detector()
-sp = dlib.shape_predictor('files\\shape_predictor_5_face_landmarks.dat')
-facerec = dlib.face_recognition_model_v1('files\\dlib_face_recognition_resnet_model_v1.dat')
-predictor = dlib.shape_predictor('files\\shape_predictor_68_face_landmarks.dat')
+sp = dlib.shape_predictor('files/shape_predictor_5_face_landmarks.dat')
+facerec = dlib.face_recognition_model_v1('files/dlib_face_recognition_resnet_model_v1.dat')
+predictor = None
+#dlib.shape_predictor('files/shape_predictor_68_face_landmarks.dat')
 
 
 user_tree = None

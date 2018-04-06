@@ -45,7 +45,7 @@ def face_detect():
         except Exception as e:
             return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файла'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/compare_faces', methods=['POST'])
@@ -60,7 +60,7 @@ def compare_faces():
         except Exception as e:
             return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файлов'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/facetovec', methods=['POST'])
@@ -74,7 +74,7 @@ def facetovec():
         except Exception as e:
             return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файла'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/face_landmarks', methods=['POST'])
@@ -88,7 +88,7 @@ def face_landmarks():
         except Exception as e:
             return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файла'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/face_swap', methods=['POST'])
@@ -109,7 +109,7 @@ def face_swap():
     #     except Exception as e:
     #         return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файла'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/nearest/<dataset>', methods=['POST'])
@@ -123,7 +123,7 @@ def search_nearest(dataset):
         except Exception as e:
             return jsonify({"result": False, "error_msg": str(e)})
     else:
-        return jsonify({'result': False, 'error_msg': 'Ошибка при загрузке файла'})
+        return jsonify({'result': False, 'error_msg': 'File load failed'})
 
 
 @app.route('/api/enable_dataset/<dataset>', methods=['POST'])
@@ -163,4 +163,4 @@ def download_image(username, filename):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5050,  debug=True)
