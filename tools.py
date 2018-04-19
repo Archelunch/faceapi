@@ -21,7 +21,7 @@ def get_secret_key():
 
 
 def decode_image(file):
-    return gray2rgb(cv2.imdecode(np.fromstring(file.read(), np.uint8), 0))
+    return gray2rgb(cv2.imdecode(np.fromstring(file, np.uint8), 0))
     
 
 def check_file(file):

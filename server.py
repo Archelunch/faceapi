@@ -1,7 +1,7 @@
 from requests import get, post
 from io import BytesIO
 from json import loads, dumps
-
+import base64
 import api
 from tools import get_secret_key, check_file, decode_image, mkdir, isExist, getFile, createFile
 from api import detect_faces, compare_photos, extract_descriptor, get_landmarks, swap_face, swap_video
@@ -115,9 +115,10 @@ def face_swap():
 @app.route('/api/nearest/<dataset>', methods=['POST'])
 #@auth.login_required
 def search_nearest(dataset):
-    img = request.files['img']
+    img = base64.b64decode(request.form['img'])
+    #print(img)
     id_i = request.form['id']
-    if check_file(img):
+    if  img:
         try:
             descs = api.get_user(decode_image(img))
             return jsonify({"result": True, 'name':descs[0][1]['name'], 'id':id_i})
