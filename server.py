@@ -116,14 +116,15 @@ def face_swap():
 #@auth.login_required
 def search_nearest(dataset):
     img = request.files['img']
+    id_i = request.form['id']
     if check_file(img):
         try:
             descs = api.get_user(decode_image(img))
-            return jsonify({"result": True, 'name':descs[0][1]['name']})
+            return jsonify({"result": True, 'name':descs[0][1]['name'], 'id':id_i})
         except Exception as e:
-            return jsonify({"result": False, "error_msg": str(e)})
+            return jsonify({"result": False, "error_msg": str(e),'id':id_i})
     else:
-        return jsonify({'result': False, 'error_msg': 'File load failed'})
+        return jsonify({'result': False, 'error_msg': 'File load failed', 'id':id_i})
 
 
 @app.route('/api/enable_dataset/<dataset>', methods=['POST'])
